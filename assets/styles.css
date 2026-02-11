@@ -1,0 +1,577 @@
+:root {
+  --font-ui: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+  --font-display: "Fraunces", "Georgia", serif;
+  --bg: #0b0b0d;
+  --bg-soft: #15151a;
+  --text: #fafafa;
+  --muted: #c8c8ce;
+  --border: #2f2f37;
+  --accent: #ff7a00;
+  --accent-soft: rgba(255, 122, 0, 0.15);
+  --card: #131318;
+  --button-text: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-ui);
+  color: var(--text);
+  background:
+    radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.08), transparent 36%),
+    linear-gradient(180deg, #050505 0%, #020202 100%);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  width: min(1080px, calc(100vw - 1.8rem));
+  margin: 0 auto;
+  padding: 2.25rem 0 3rem;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: color-mix(in oklab, var(--card) 86%, transparent);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.25);
+}
+
+.profile--hero {
+  grid-template-columns: 152px 1fr;
+  align-items: end;
+  padding: 1.65rem;
+  border-radius: 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile--hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(112deg, rgba(255, 255, 255, 0.04), transparent 55%);
+  pointer-events: none;
+}
+
+.profile__avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 999px;
+  border: 2px solid var(--accent);
+  object-fit: cover;
+}
+
+.profile--hero .profile__avatar {
+  width: 152px;
+  height: 152px;
+  border-width: 3px;
+}
+
+.profile__name {
+  margin: 0;
+  font-family: var(--font-display);
+  letter-spacing: 0.03em;
+  font-size: clamp(1.5rem, 3.3vw, 2rem);
+}
+
+.profile__content {
+  position: relative;
+  z-index: 1;
+}
+
+.profile__kicker {
+  margin: 0 0 0.48rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.profile__name-main {
+  display: block;
+}
+
+.profile__name-sub {
+  display: block;
+  margin-top: 0.12rem;
+  font-family: var(--font-ui);
+  font-size: 0.35em;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.profile--hero .profile__name {
+  font-size: clamp(2.2rem, 5.4vw, 3.9rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+}
+
+.profile__mail {
+  margin-top: 0.25rem;
+  display: inline-flex;
+  width: fit-content;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--accent) 75%, transparent);
+}
+
+.profile--hero .profile__mail {
+  margin-top: 0.56rem;
+  padding: 0.5rem 0.78rem;
+  font-size: 1rem;
+  border: 1px solid color-mix(in oklab, var(--accent) 70%, #fff 30%);
+  border-radius: 0.58rem;
+  background: color-mix(in oklab, var(--accent) 18%, transparent);
+}
+
+.profile__chips {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.44rem;
+}
+
+.profile__chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.56rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--accent) 55%, var(--border));
+  color: var(--text);
+  background: color-mix(in oklab, var(--accent) 12%, transparent);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+.bio {
+  margin: 1.2rem 0 1.8rem;
+  padding-left: 0.6rem;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 1.02rem;
+}
+
+.bio--hero {
+  margin-top: 1.35rem;
+  margin-bottom: 2.05rem;
+  padding: 1rem 1rem 1rem 1.3rem;
+  border-left: 4px solid var(--accent);
+  border-radius: 0.9rem;
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--card) 90%, transparent),
+    color-mix(in oklab, var(--card) 74%, transparent)
+  );
+  display: grid;
+  gap: 0.34rem;
+}
+
+.bio--hero p {
+  margin: 0;
+  font-size: 1.04rem;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+@media (min-width: 680px) {
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1220px) {
+  .products {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  overflow: hidden;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in oklab, var(--accent) 60%, var(--border));
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+}
+
+.card__media {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: color-mix(in oklab, var(--bg-soft) 72%, black);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform-origin: center center;
+  transition: transform 350ms ease;
+}
+
+.card:hover .card__image {
+  transform: rotate(0.55deg) scale(1.02);
+}
+
+.card__image.is-swapping {
+  transform: rotate(-1.25deg) scale(1.03);
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 11.2rem;
+  padding: 0.92rem;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.card__summary {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card__meta {
+  margin-top: auto;
+  padding-top: 0.82rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.card__price {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.card__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.52rem 0.84rem;
+  border-radius: 0.64rem;
+  border: 1px solid color-mix(in oklab, var(--accent) 68%, #fff 32%);
+  background: color-mix(in oklab, var(--accent) 24%, var(--card));
+  text-decoration: none;
+  color: var(--button-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.card__cta:hover {
+  background: color-mix(in oklab, var(--accent) 36%, var(--card));
+}
+
+.status {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  min-height: 1.25rem;
+}
+
+.bio__lead {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.24rem, 2.5vw, 1.7rem);
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.bio__emphasis {
+  margin: 0;
+  font-size: 0.94rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--accent) 78%, #fff 22%);
+}
+
+.status.is-error {
+  color: #ff9f9f;
+}
+
+body[data-theme="dark"] {
+  --bg: #050505;
+  --bg-soft: #121212;
+  --text: #fcfcfc;
+  --muted: #c7c7c9;
+  --border: #2a2a2c;
+  --accent: #ff7a00;
+  --card: #101012;
+}
+
+body[data-theme="dark"] .profile--hero {
+  border-color: color-mix(in oklab, var(--accent) 42%, var(--border));
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.36);
+}
+
+body[data-theme="dark"] .profile--hero::before {
+  background:
+    linear-gradient(112deg, rgba(255, 255, 255, 0.045), transparent 54%),
+    radial-gradient(circle at 82% 15%, rgba(255, 122, 0, 0.12), transparent 30%);
+}
+
+body[data-theme="dark"] .profile--hero .profile__avatar {
+  box-shadow: 0 0 0 5px rgba(255, 122, 0, 0.11);
+}
+
+body[data-theme="dark"] .profile--hero .profile__mail {
+  color: #ffffff;
+  background: color-mix(in oklab, var(--accent) 18%, #000 82%);
+}
+
+body[data-theme="dark"] .bio--hero {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--card) 90%, transparent),
+    color-mix(in oklab, var(--card) 72%, transparent)
+  );
+}
+
+body[data-theme="dark"] .card__title {
+  font-size: 1.16rem;
+}
+
+body[data-theme="dark"] .card__summary {
+  font-size: 1rem;
+}
+
+body[data-theme="dark"] .card__price {
+  font-size: 1.05rem;
+}
+
+body[data-theme="light"] {
+  --bg: #f9f8f3;
+  --bg-soft: #ece8dd;
+  --text: #171717;
+  --muted: #4f4d45;
+  --border: #d5cebf;
+  --card: #fffdf7;
+  --accent: #de6200;
+  --button-text: #fff;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(222, 98, 0, 0.11), transparent 30%),
+    radial-gradient(circle at 82% 8%, rgba(255, 255, 255, 0.65), transparent 25%),
+    var(--bg);
+}
+
+body[data-theme="light"] .profile--hero {
+  border-color: color-mix(in oklab, var(--accent) 46%, var(--border));
+  box-shadow: 0 20px 38px rgba(25, 20, 14, 0.12);
+}
+
+body[data-theme="light"] .profile--hero::before {
+  background:
+    linear-gradient(112deg, rgba(255, 255, 255, 0.75), transparent 55%),
+    radial-gradient(circle at 84% 14%, rgba(222, 98, 0, 0.15), transparent 30%);
+}
+
+body[data-theme="light"] .profile--hero .profile__mail {
+  color: #1d1a17;
+  background: color-mix(in oklab, var(--accent) 18%, #fff 82%);
+}
+
+body[data-theme="light"] .bio--hero {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--card) 95%, #ffffff 5%),
+    color-mix(in oklab, var(--card) 84%, #ffffff 16%)
+  );
+}
+
+body[data-theme="atelier"] {
+  --bg: #14110f;
+  --bg-soft: #221a16;
+  --text: #fff6ea;
+  --muted: #d9c7b8;
+  --border: #4d3626;
+  --card: #1f1814;
+  --accent: #ff8a2f;
+  --button-text: #fffdf8;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 138, 47, 0.18), transparent 32%),
+    radial-gradient(circle at 80% 0%, rgba(255, 239, 219, 0.08), transparent 27%),
+    linear-gradient(125deg, #100d0b 0%, #171311 50%, #0f0d0d 100%);
+}
+
+body[data-theme="atelier"] .profile--hero {
+  border-color: color-mix(in oklab, var(--accent) 52%, var(--border));
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.31), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+body[data-theme="atelier"] .profile--hero::before {
+  background:
+    linear-gradient(112deg, rgba(255, 255, 255, 0.05), transparent 50%),
+    radial-gradient(circle at 84% 14%, rgba(255, 138, 47, 0.18), transparent 31%);
+}
+
+body[data-theme="atelier"] .profile--hero .profile__mail {
+  color: #fff8ef;
+  background: color-mix(in oklab, var(--accent) 22%, #1a1310 78%);
+}
+
+body[data-theme="atelier"] .bio--hero {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--card) 90%, transparent),
+    color-mix(in oklab, var(--card) 72%, transparent)
+  );
+}
+
+body[data-theme="atelier"] .profile,
+body[data-theme="atelier"] .card {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.33), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+@media (max-width: 900px) {
+  .page {
+    width: min(1080px, calc(100vw - 1.3rem));
+    padding-top: 1.4rem;
+  }
+
+  .profile--hero {
+    grid-template-columns: 104px 1fr;
+    padding: 1.05rem;
+    align-items: center;
+  }
+
+  .profile--hero .profile__avatar {
+    width: 104px;
+    height: 104px;
+  }
+
+  .profile--hero .profile__name {
+    font-size: clamp(1.85rem, 8vw, 2.8rem);
+  }
+
+  .profile__kicker {
+    font-size: 0.66rem;
+    letter-spacing: 0.15em;
+  }
+
+  .profile--hero .profile__mail {
+    font-size: 0.87rem;
+    padding: 0.42rem 0.58rem;
+    margin-top: 0.46rem;
+  }
+
+  .bio--hero p {
+    font-size: 0.97rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .page {
+    width: min(1080px, calc(100vw - 1.1rem));
+    padding-top: 1.2rem;
+  }
+
+  .profile {
+    grid-template-columns: 74px 1fr;
+    padding: 0.92rem;
+  }
+
+  .profile__avatar {
+    width: 74px;
+    height: 74px;
+  }
+
+  .profile--hero {
+    grid-template-columns: 90px 1fr;
+    gap: 0.72rem;
+    padding: 0.9rem;
+  }
+
+  .profile--hero .profile__avatar {
+    width: 90px;
+    height: 90px;
+  }
+
+  .profile--hero .profile__name {
+    font-size: clamp(1.7rem, 10vw, 2.4rem);
+  }
+
+  .profile__kicker {
+    font-size: 0.62rem;
+    letter-spacing: 0.13em;
+  }
+
+  .profile--hero .profile__mail {
+    font-size: 0.82rem;
+    padding: 0.36rem 0.52rem;
+  }
+
+  .profile__chips {
+    margin-top: 0.5rem;
+    gap: 0.35rem;
+  }
+
+  .profile__chip {
+    padding: 0.24rem 0.48rem;
+    font-size: 0.66rem;
+  }
+
+  .bio--hero {
+    padding: 0.8rem 0.8rem 0.8rem 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1.45rem;
+  }
+
+  .bio--hero p {
+    font-size: 0.92rem;
+  }
+}

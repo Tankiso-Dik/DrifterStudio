@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DrifterStudio Portfolio</title>
+    <meta name="description" content="DrifterStudio portfolio of digital art tools, brushes, and paper textures." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body data-theme="dark">
+    <main class="page">
+      <header class="profile profile--hero">
+        <img
+          class="profile__avatar"
+          src="https://i.etsystatic.com/10922652/r/isla/fce025/27116383/isla_100x100.27116383_lgoqbrpn.jpg"
+          alt="DrifterStudio profile image"
+        />
+        <div class="profile__content">
+          <p class="profile__kicker">TEXTURE-FIRST DIGITAL ART TOOLS</p>
+          <h1 class="profile__name">
+            <span class="profile__name-main">DrifterStudio</span>
+            <span class="profile__name-sub">Portfolio</span>
+          </h1>
+          <a class="profile__mail" href="mailto:danielsamdon7@gmail.com">danielsamdon7@gmail.com</a>
+          <div class="profile__chips" aria-hidden="true">
+            <span class="profile__chip">Procreate</span>
+            <span class="profile__chip">Brush Kits</span>
+            <span class="profile__chip">Paper Textures</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="bio bio--hero" aria-label="Studio bio">
+        <p class="bio__lead">I build tools that make digital art feel real.</p>
+        <p>Procreate brushes, papers &amp; creative systems</p>
+        <p class="bio__emphasis">For artists who care about texture.</p>
+      </section>
+
+      <section aria-label="Portfolio products">
+        <div class="products" data-products-grid></div>
+        <p class="status" data-status aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="./assets/app.js" defer></script>
+  </body>
+</html>
