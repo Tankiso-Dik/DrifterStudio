@@ -145,6 +145,14 @@ a {
   background: color-mix(in oklab, var(--accent) 18%, transparent);
 }
 
+.profile__account-id {
+  margin: 0.34rem 0 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 .profile__chips {
   margin-top: 0.7rem;
   display: flex;
@@ -509,6 +517,10 @@ body[data-theme="atelier"] .card {
     margin-top: 0.46rem;
   }
 
+  .profile__account-id {
+    font-size: 0.68rem;
+  }
+
   .bio--hero p {
     font-size: 0.97rem;
   }
@@ -553,6 +565,11 @@ body[data-theme="atelier"] .card {
   .profile--hero .profile__mail {
     font-size: 0.82rem;
     padding: 0.36rem 0.52rem;
+  }
+
+  .profile__account-id {
+    font-size: 0.62rem;
+    margin-top: 0.28rem;
   }
 
   .profile__chips {
